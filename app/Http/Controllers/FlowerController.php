@@ -20,9 +20,14 @@ class FlowerController extends Controller
     }
 
     public function login(Request $request){
+      $message = "Login Failed";
       $user = DB::table('companies')->select('*')->where('company_email',$request->email)->where('password',Hash::make($request->password))->first();
-
-      return redirect('dashboard');
+      if(empty($user)){
+        // return back()->withErrors(['email'=>['credentials do not match our records']]);
+        // return response()->json($user);
+        return back()->withInput()->withErrors(array('email' => $message));
+      }
+      return view('dashboard',compact('user'));
     }
 
     public function register(Request $request){

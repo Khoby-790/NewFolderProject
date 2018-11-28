@@ -9,7 +9,7 @@
 
     <nav class="navbar sticky-top navbar-dark bg-primary">
       <a href="#" class="navbar-brand">Flower</a>
-      <a href="{{url('register')}}" class="navbar-item text-white">User Name</a>
+      <a href="{{url('register')}}" class="navbar-item text-white">{{$user->company_name}}</a>
     </nav>
 
     <div class="jumbotron">

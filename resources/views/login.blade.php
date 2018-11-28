@@ -37,6 +37,11 @@
                           <div class="form-group">
                               <label for="">Email</label>
                               <input type="email" name="email" value="" class="form-control" required>
+                              @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                             @endif
                           </div>
                           <div class="form-group">
                               <label for="">Password</label>
